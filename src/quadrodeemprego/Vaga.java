@@ -12,6 +12,7 @@ public class Vaga {
     private String jornada;
     private String vagas;
     private String remuneracao;
+    
     public Vaga(Areadeatuacao area,EmpresadaVaga empresa,Regimedecontratacao regime){
         // Vem da area de atuação
         this.nome=area.getNome();

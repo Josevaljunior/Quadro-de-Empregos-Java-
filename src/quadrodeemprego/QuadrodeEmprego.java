@@ -21,11 +21,11 @@ public class QuadrodeEmprego {
      
      
     Scanner input = new Scanner(System.in);
-    int contador=0;
+       
    
     do{
      
-     System.out.println("### Mini projeto 01/Quadro de empregos ###\n "+"Digite 1 para cadastrar uma nova empresa \n"+"2 para Editar alguma empresa \n"+"3 para ver as empresas cadastradas\n"+"-1 para finalizar o programa");
+     System.out.println("### Projeto 01/Quadro de empregos ###\n "+"Digite 1 para cadastrar uma nova empresa \n"+"Digite 2 para Editar alguma empresa \n"+"Digite 3 para ver as empresas cadastradas\n"+"Digite -1 para finalizar o programa");
      
      entmenu=input.nextInt();
      input.nextLine();
@@ -39,8 +39,8 @@ public class QuadrodeEmprego {
     Regimedecontratacao Regime = new  Regimedecontratacao();
      System.out.print("Digite o nome da fução: ");
       nome = input.nextLine(); 
-      
       Atuacao.setNome(nome);
+      
       //recolhe a dedcrição da area de atuação
      System.out.print("Digite a descrição da vaga: ");
       descript=input.nextLine();
@@ -89,7 +89,7 @@ public class QuadrodeEmprego {
      //## instancia objeto da classe vaga que recebera os objetos das outras classes
     
       Vaga vaga = new Vaga(Atuacao,Empresa,Regime);
-      QuardaVagas vagaent = new QuardaVagas();
+      //QuardaVagas vagaent = new QuardaVagas();
       listadevagas.add(vaga);
       
       
@@ -103,9 +103,10 @@ public class QuadrodeEmprego {
      case 2:
      //verifica se o array esta vasio
      if(listadevagas.isEmpty()){
-     System.out.println("Erro!! Ainda não a nem uma vaga cadastrada (Digite 1 no menu para cadastrar uma vaga)");
+     System.out.println("Erro!! Ainda não ha nem uma vaga cadastrada (Digite 1 no menu para cadastrar uma vaga)");
      break;
      }
+        
         int entradapmetodo=0;
         int paranetropedit=0;
         System.out.println("Qual vaga voce quer edirar ?");
@@ -114,7 +115,7 @@ public class QuadrodeEmprego {
         }
         entradapmetodo=input.nextInt();
          System.out.println(" ");
-        //aqui eu vou colocar o metodo para receber o indici da empresa que quero editar indice da empresa que quero editar
+        //aqui eu vou colocar o metodo para receber o indice da empresa que quero editar indice da empresa que quero editar
         System.out.print("Digite 0 para editar o nome da função \n"+
         "Digite 1 para editar a a descrição da vaga\n"+"Digite 2 para editar a empresa da vaga\n"+
         "Digite 3 para editar o ano da fundação da empresa:\n"+"Digite 4 para editar  o ramo da empresa da vaga\n"+
@@ -123,8 +124,9 @@ public class QuadrodeEmprego {
         "Digite 9 para editar a remuneração\n"+"Digite 10 para remover a vaga \n");
         paranetropedit = input.nextInt();
         input.nextLine();
+        // vai receber os novos parametros
         String novo;
-        //estrutura de desizão
+        //estrutura de decisão
         switch(paranetropedit){
             case 0:  
             // aqui eu escaneio o novo parametro para dentro da variavel novo e passo como parametro para o set(é isso em todos os outrosa cases)
@@ -187,6 +189,7 @@ public class QuadrodeEmprego {
      // verifica se o array esta vazio
      if(listadevagas.isEmpty()){
      System.out.println("Erro!! Ainda não a nem uma vaga cadastrada (Digite 1 no menu para cadastrar uma vaga)");
+     System.out.println(" ");
      break;
      }
          for(int i=0; i<listadevagas.size();i++){
@@ -200,11 +203,12 @@ public class QuadrodeEmprego {
          System.out.println("Jornada de trabalho (Em horas semanais) "+listadevagas.get(i).getJornada());
          System.out.println("Quantidade de vagas "+listadevagas.get(i).getVagas());
          System.out.println("Remuneração: "+listadevagas.get(i).getRemunera());
+         System.out.print("\n");
          }
          break;
      default:
          if(entmenu!=-1){
-         System.out.println("!!! Digite uma opção valida para o menu\n");
+         System.out.println("Erro !!! Digite uma opção valida para o menu\n");
          break;
          }
     }
